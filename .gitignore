@@ -1,0 +1,8 @@
+benchllama-profile
+__pycache__
+.env 
+evaluation_results/
+huggingFace
+kernels/profiling
+model.safetensors
+tokenizer.model
