@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="504pt" viewBox="0 0 864 504" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-17T18:55:11.992923</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 504 
+L 864 504 
+L 864 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 431.493649 275.780489 
+C 435.750284 254.161873 435.165094 231.866317 429.780256 210.500759 
+C 424.395418 189.135202 414.343487 169.225582 400.34895 152.206874 
+C 386.354412 135.188165 368.761761 121.479303 348.838975 112.068347 
+C 328.916188 102.65739 307.153691 97.776 285.12 97.776 
+L 285.12 160.43328 
+C 297.899541 160.43328 310.521789 163.264486 322.077005 168.722841 
+C 333.632221 174.181196 343.835959 182.132336 351.952791 192.003187 
+C 360.069623 201.874038 365.899743 213.421617 369.022948 225.81364 
+C 372.146154 238.205664 372.485565 251.137086 370.016717 263.675884 
+z
+" style="fill: #1f77b4; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 284.795268 396.143647 
+C 319.407313 396.218988 352.989521 384.246537 379.74766 362.292007 
+C 406.505798 340.337477 424.807018 309.740588 431.493649 275.780489 
+L 370.016717 263.675884 
+C 366.13847 283.372741 355.523763 301.118937 340.004043 313.852564 
+C 324.484322 326.586192 305.006642 333.530213 284.931655 333.486515 
+z
+" style="fill: #aec7e8; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 143.434379 293.661721 
+C 153.24412 323.42292 172.185923 349.350038 197.556473 367.74284 
+C 222.927023 386.135642 253.459101 396.075436 284.795268 396.143647 
+L 284.931655 333.486515 
+C 266.756679 333.446953 249.048073 327.681873 234.333154 317.014047 
+C 219.618235 306.346222 208.63199 291.308494 202.94234 274.046998 
+z
+" style="fill: #ff7f0e; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 152.303815 179.020859 
+C 143.315485 196.592404 137.902935 215.774251 136.380489 235.452449 
+C 134.858043 255.130647 137.255754 274.916751 143.434379 293.661721 
+L 202.94234 274.046998 
+C 199.358737 263.174916 197.968065 251.698975 198.851084 240.28562 
+C 199.734102 228.872266 202.873381 217.746795 208.086613 207.555298 
+z
+" style="fill: #ffbb78; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 239.455177 104.936799 
+C 220.769487 110.944822 203.451878 120.581857 188.497127 133.294322 
+C 173.542376 146.006787 161.242423 161.546516 152.303815 179.020859 
+L 208.086613 207.555298 
+C 213.271005 197.42018 220.404978 188.407137 229.078734 181.033907 
+C 237.752489 173.660677 247.796702 168.071197 258.634402 164.586543 
+z
+" style="fill: #2ca02c; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 261.707648 99.624574 
+C 257.937772 100.223627 254.192276 100.967149 250.479432 101.853498 
+C 246.766587 102.739847 243.089129 103.768371 239.455177 104.936799 
+L 258.634402 164.586543 
+C 260.742095 163.908855 262.87502 163.312312 265.02847 162.798229 
+C 267.18192 162.284146 269.354308 161.852904 271.540836 161.505453 
+z
+" style="fill: #98df8a; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 278.003328 97.945844 
+C 275.274573 98.076164 272.549912 98.281414 269.832428 98.561361 
+C 267.114944 98.841308 264.405662 99.195846 261.707648 99.624574 
+L 271.540836 161.505453 
+C 273.105684 161.256791 274.677067 161.051159 276.253208 160.88879 
+C 277.829349 160.72642 279.409652 160.607375 280.99233 160.531789 
+z
+" style="fill: #d62728; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 285.12 97.776 
+C 283.933424 97.776 282.746889 97.790157 281.560651 97.818467 
+C 280.374412 97.846777 279.188554 97.889239 278.003328 97.945844 
+L 280.99233 160.531789 
+C 281.679761 160.498959 282.367559 160.474331 283.055577 160.457911 
+C 283.743596 160.441491 284.431786 160.43328 285.12 160.43328 
+z
+" style="fill: #ff9896; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2"/>
+   <g id="text_1">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle" x="373.846291" y="176.857514" transform="rotate(-0 373.846291 176.857514)">28.1%</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle" x="357.983298" y="338.623067" transform="rotate(-0 357.983298 338.623067)">21.9%</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle" x="217.696084" y="342.820209" transform="rotate(-0 217.696084 342.820209)">19.9%</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle" x="170.590577" y="240.956608" transform="rotate(-0 170.590577 240.956608)">12.6%</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle" x="210.720388" y="162.29485" transform="rotate(-0 210.720388 162.29485)">12.5%</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 25px; font-family: 'DejaVu Sans'; text-anchor: middle" x="285.12" y="244.503101" transform="rotate(-0 285.12 244.503101)">17.974 g</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #555555" x="285.12" y="270.703612" transform="rotate(-0 285.12 270.703612)">CO₂e measured</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: middle" x="285.12" y="42.48" transform="rotate(-0 285.12 42.48)">Carbon budget by model component (int4)</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_10">
+     <path d="M 481.5 192.064844 
+L 503.5 192.064844 
+L 503.5 184.364844 
+L 481.5 184.364844 
+z
+" style="fill: #1f77b4; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="512.3" y="192.064844" transform="rotate(-0 512.3 192.064844)">Residual additions  ·  5.0496 g  (28.1%)</text>
+    </g>
+    <g id="patch_11">
+     <path d="M 481.5 208.565703 
+L 503.5 208.565703 
+L 503.5 200.865703 
+L 481.5 200.865703 
+z
+" style="fill: #aec7e8; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="512.3" y="208.565703" transform="rotate(-0 512.3 208.565703)">MLP  ·  3.9436 g  (21.9%)</text>
+    </g>
+    <g id="patch_12">
+     <path d="M 481.5 225.066563 
+L 503.5 225.066563 
+L 503.5 217.366563 
+L 481.5 217.366563 
+z
+" style="fill: #ff7f0e; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_11">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="512.3" y="225.066563" transform="rotate(-0 512.3 225.066563)">Attention  ·  3.5764 g  (19.9%)</text>
+    </g>
+    <g id="patch_13">
+     <path d="M 481.5 241.567422 
+L 503.5 241.567422 
+L 503.5 233.867422 
+L 481.5 233.867422 
+z
+" style="fill: #ffbb78; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="512.3" y="241.567422" transform="rotate(-0 512.3 241.567422)">MLP norm  ·  2.2634 g  (12.6%)</text>
+    </g>
+    <g id="patch_14">
+     <path d="M 481.5 258.068281 
+L 503.5 258.068281 
+L 503.5 250.368281 
+L 481.5 250.368281 
+z
+" style="fill: #2ca02c; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_13">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="512.3" y="258.068281" transform="rotate(-0 512.3 258.068281)">Attention norm  ·  2.2510 g  (12.5%)</text>
+    </g>
+    <g id="patch_15">
+     <path d="M 481.5 274.569141 
+L 503.5 274.569141 
+L 503.5 266.869141 
+L 481.5 266.869141 
+z
+" style="fill: #98df8a; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_14">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="512.3" y="274.569141" transform="rotate(-0 512.3 274.569141)">Output head  ·  0.4391 g  (2.4%)</text>
+    </g>
+    <g id="patch_16">
+     <path d="M 481.5 291.07 
+L 503.5 291.07 
+L 503.5 283.37 
+L 481.5 283.37 
+z
+" style="fill: #d62728; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_15">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="512.3" y="291.07" transform="rotate(-0 512.3 291.07)">Embedding  ·  0.3143 g  (1.7%)</text>
+    </g>
+    <g id="patch_17">
+     <path d="M 481.5 307.570859 
+L 503.5 307.570859 
+L 503.5 299.870859 
+L 481.5 299.870859 
+z
+" style="fill: #ff9896; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_16">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start" x="512.3" y="307.570859" transform="rotate(-0 512.3 307.570859)">Final norm  ·  0.1365 g  (0.8%)</text>
+    </g>
+   </g>
+  </g>
+  <g id="text_17">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #555555" transform="translate(43.2 475.557539)">Measured inference components only; warmup and compilation excluded.</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #555555" transform="translate(43.2 486.36)">CodeCarbon estimates include idle power and measurement overhead; short tasks may be noisy.</text>
+  </g>
+ </g>
+</svg>
