@@ -26,6 +26,9 @@
 - Dataset implemetation [here](https://github.com/MeRichard123/Dynamic_FEFO_Cold-Zone_Dispatch)
 - Dataset is public on [HuggingFace](https://huggingface.co/datasets/RichardMe123/Dynamic_FEFO_Cold-Zone_Dispatch)
 
+- A simpler secondary dataset used is the [Stanford Sentiment Treebank](https://huggingface.co/datasets/stanfordnlp/sst2) dataset. 
+- SST2 was used initially to test the model implemetation.
+
 **Benchmark Results**
 
 All runs used the first 300 validation examples on CUDA with KV caching. FEFO used synchronized component carbon profiling, which adds latency overhead. SST-2 ran with component profiling disabled. Accuracy measures exact matches of pallet IDs and priorities for FEFO and sentiment labels for SST-2. INT4 quantised results use a group size of 64.
