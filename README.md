@@ -7,10 +7,14 @@
 - Implemented Flash Attention.
 - Implemented 4bit matmul for quantisation.
 
+**Weights**
+- Weights come from the official [Llama 3.2 repo](https://huggingface.co/meta-llama/Llama-3.2-1B/tree/main)
+- Along with the [tokeniser model](https://huggingface.co/meta-llama/Llama-3.2-1B/blob/main/original/tokenizer.model)
+
 **Script**
 - Measuring latency and carbon intensity for all sections of the model.
 
-**Data**
+**Dataset**
 - https://huggingface.co/datasets/RichardMe123/Dynamic_FEFO_Cold-Zone_Dispatch
 
 **Carbon Counting**
