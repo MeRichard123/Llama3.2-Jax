@@ -32,8 +32,8 @@ All runs used the first 300 validation examples on CUDA with KV caching. FEFO us
 
 | Dataset | Precision | Examples | Accuracy | Invalid responses | Mean latency (s) | P50 latency (s) | P95 latency (s) | Whole-script emissions (g CO₂e) |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| FEFO | INT4 | 300 | 28.33% | 7 | 69.22 | 76.02 | 77.93 | 18.04 |
-| FEFO | BF16 | 300 | 14.67% | 182 | 76.23 | 68.56 | 78.52 | 18.97 |
+| FEFO | INT4 | 300 | 28.33% | 7 | 69.22 | 76.02 | 77.93 | 17.973 |
+| FEFO | BF16 | 300 | 14.67% | 182 | 76.23 | 68.56 | 78.52 | 18.908 |
 | SST-2 | INT4| 300 | 80.67% | 0 | 0.116 | 0.097 | 0.172 | 0.287 |
 | SST-2 | BF16 | 300 | 77.33% | 0 | 0.115 | 0.093 | 0.166 | 0.282 |
 
