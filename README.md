@@ -65,7 +65,7 @@ awk -F, '$2+0 > peak {peak=$2+0} END {print peak " MiB"}' eval-int4-vram.csv
 
 | Measurement | INT4 | BF16 |
 |---|---:|---:|
-| Peak GPU-wide VRAM, sampled every 100 ms | 8.654 MiB | 8.656 GiB |
+| Peak GPU-wide VRAM, sampled every 100 ms | 8.654 GiB | 8.656 GiB |
 | GPU baseline before and after each run | 0.508 GiB | 0.508 MiB |
 | Peak above baseline | 8.146 GiB | 8.148 GiB |
 | Peak host RSS recorded in Mem.txt | 4.38 GiB | 4.24 GiB |
