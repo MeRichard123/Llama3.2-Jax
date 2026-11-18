@@ -1,4 +1,4 @@
-"""Evaluate a local Llama checkpoint on warehouse pallet pick ordering."""
+"""Evaluate a local Llama checkpoint on warehouse pallet pick ordering or SST-2 sentiment."""
 import argparse
 import csv
 import hashlib
@@ -10,13 +10,20 @@ from collections import Counter
 from pathlib import Path
 from codecarbon import EmissionsTracker
 
+SST2_DATASET = 'stanfordnlp/sst2'
+SST2_INSTRUCTION = (
+    'Classify the sentiment of the following sentence as positive or negative.\n'
+    'Respond with only the category.\n\nSentence: '
+)
+
+
 def load_sst2():
     from datasets import load_dataset
 
-    ds = load_dataset("stanfordnlp/sst2")
-    names = ds['validation'].features['label'].names
+    ds = load_dataset(SST2_DATASET, split='validation')
+    names = ds.features['label'].names
     return [dict(row=int(item['idx']), text=item['sentence'], label=names[item['label']])
-            for item in ds['validation']]
+            for item in ds]
 
 WAREHOUSE_DATASET = 'RichardMe123/Dynamic_FEFO_Cold-Zone_Dispatch'
 
@@ -134,6 +141,7 @@ def summarize(results, labels):
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source-reference', default=None)
+    parser.add_argument('--sst2', action='store_true', help='Evaluate SST-2 sentiment on the validation split')
     parser.add_argument('--split', default='validation', help='Warehouse dataset split (default: validation)')
     parser.add_argument('--quantisation', choices = ('4', '8', 'bf16', '1.58'), default = None)
     selection = parser.add_mutually_exclusive_group()
@@ -159,6 +167,8 @@ def parse_args():
     parser.add_argument('--warmup-each', action='store_true',
                         help='Run each input once before timing it to exclude shape-specific compilation')
     args = parser.parse_args()
+    if args.sst2 and args.split != 'validation':
+        parser.error('--sst2 uses the validation split')
     if args.suffix and not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', args.suffix):
         parser.error('--suffix must start with a letter or digit and contain only letters, digits, _, . or -')
     return parser, args
@@ -189,15 +199,22 @@ def main(tracker=None, parsed_args=None):
         parser.error('--max-new-tokens must be positive')
     if args.profile_generations < 1:
         parser.error('--profile-generations must be positive')
+    if args.sst2:
+        dataset, task = SST2_DATASET, 'sentiment_classification'
+        instruction = SST2_INSTRUCTION
+        parse_response = parse_prediction
+    else:
+        dataset, task = WAREHOUSE_DATASET, 'simplified_pick_order'
+        instruction = WAREHOUSE_INSTRUCTION
+        parse_response = parse_warehouse_prediction
     try:
-        all_rows = load_warehouse(args.split)
+        all_rows = load_sst2() if args.sst2 else load_warehouse(args.split)
     except ValueError as error:
         parser.error(str(error))
     labels = sorted({row['label'] for row in all_rows})
     if '<INVALID>' in labels:
         parser.error('The label <INVALID> is reserved')
     rows = all_rows if args.all else all_rows[:args.limit]
-    instruction = WAREHOUSE_INSTRUCTION
     def prompt_for(row):
         return instruction + row['text']
 
@@ -268,7 +285,7 @@ def main(tracker=None, parsed_args=None):
             started = time.perf_counter()
             raw = predict(ids, measure=True)
             elapsed = time.perf_counter() - started
-            prediction = parse_warehouse_prediction(raw)
+            prediction = parse_response(raw)
             result = dict(**row, raw_output=raw, prediction=prediction,
                           correct=prediction == row['label'], latency_seconds=elapsed,
                           prompt_tokens=len(ids), generated_tokens=last_generated_tokens)
@@ -276,24 +293,28 @@ def main(tracker=None, parsed_args=None):
             handle.write(json.dumps(result, ensure_ascii=False) + '\n')
             handle.flush()
             print(f'{len(results)}/{len(rows)} correct={result["correct"]} latency={elapsed:.3f}s', flush=True)
-    times = [r['latency_seconds'] for r in results]
-    report = dict(
-        examples=len(results), accuracy=sum(r['correct'] for r in results) / len(results),
-        invalid_responses=sum(r['prediction'] == '<INVALID>' for r in results),
-        scoring='Exact match of pallet IDs and priorities, ignoring JSON key and array order',
-        reference_scope='Simulation-generated pick priorities; simplified inputs may omit constraints used by the simulation',
-        latency_seconds=dict(mean=sum(times) / len(times), p50=percentile(times, .5),
-                             p95=percentile(times, .95), minimum=min(times), maximum=max(times)))
+    if args.sst2:
+        report = summarize(results, labels)
+        report['scoring'] = 'Exact match of the parsed positive or negative sentiment label'
+    else:
+        times = [r['latency_seconds'] for r in results]
+        report = dict(
+            examples=len(results), accuracy=sum(r['correct'] for r in results) / len(results),
+            invalid_responses=sum(r['prediction'] == '<INVALID>' for r in results),
+            scoring='Exact match of pallet IDs and priorities, ignoring JSON key and array order',
+            reference_scope='Simulation-generated pick priorities; simplified inputs may omit constraints used by the simulation',
+            latency_seconds=dict(mean=sum(times) / len(times), p50=percentile(times, .5),
+                                 p95=percentile(times, .95), minimum=min(times), maximum=max(times)))
     if component_profiler is not None:
         report['component_carbon'] = component_profiler.report()
     report['metadata'] = dict(
-                              dataset=WAREHOUSE_DATASET,
+                              dataset=dataset,
                               quantisation=args.quantisation or 'bf16', warmup_each=args.warmup_each,
                               quantisation_scheme=('grouped symmetric INT4' if args.quantisation == '4'
                                                    else args.quantisation or 'bf16'),
                               quantisation_group_size=(model.trf_blocks[0].att.W_query.group_size
                                                        if args.quantisation == '4' else None),
-                              split=args.split, task='simplified_pick_order',
+                              split=args.split, task=task,
                               weights=str(args.weights), tokenizer=str(args.tokenizer),
                               prompt_instruction=instruction, chat=args.chat, temperature=0.0,
                               context_size=args.context_size, max_new_tokens=args.max_new_tokens,
@@ -304,7 +325,7 @@ def main(tracker=None, parsed_args=None):
                                             if args.kv_cache else 'variable sequence lengths'),
                               model_load_seconds=load_seconds, warmup_seconds=warmup_seconds,
                               device=str(jax.devices()[0]), 
-                              source_reference=(args.source_reference or f'https://huggingface.co/datasets/{WAREHOUSE_DATASET}'),
+                              source_reference=(args.source_reference or f'https://huggingface.co/datasets/{dataset}'),
                               latency_scope='Post-warmup generation, device synchronization and decoding; excludes tokenization and model load. Shape-specific compilation may remain.')
     (args.output / f'metrics{filename_suffix}.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report, indent=2))
