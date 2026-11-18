@@ -15,7 +15,7 @@
 
 **Carbon Counting**
 
-![](./evaluation_results/figures/component_carbon_pie.png)
+![](./evaluation_results/figures/component_carbon_pie_bf16.png)
 ![](./evaluation_results/figures/component_carbon_pie_int4.png)
 
 
