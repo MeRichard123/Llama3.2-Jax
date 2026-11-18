@@ -47,6 +47,29 @@ python3 evaluate.py --sst2 --all --quantisation 4 --suffix int4 --output evaluat
 python3 evaluate.py --sst2 --all --quantisation bf16 --suffix bf16 --output evaluation_results/sst2
 ```
 
+**Memory usage**
+*Measurements taken only once so not validated*
+
+CPU measurements taken using unix time:
+```bash
+/usr/bin/time -f 'peak_rss_kib=%M' \
+  -o eval-int4-memory.txt \
+  python3 evaluate.py --quantisation 4 --suffix int4
+```
+
+GPU taken using nvidia smi
+```
+nvidia-smi -i 0 --query-gpu=timestamp,memory.used --format=csv,noheader,nounits -lms 100 > eval-int4-vram.csv
+awk -F, '$2+0 > peak {peak=$2+0} END {print peak " MiB"}' eval-int4-vram.csv
+```
+
+| Measurement | INT4 | BF16 |
+|---|---:|---:|
+| Peak GPU-wide VRAM, sampled every 100 ms | 8.654 MiB | 8.656 GiB |
+| GPU baseline before and after each run | 0.508 GiB | 0.508 MiB |
+| Peak above baseline | 8.146 GiB | 8.148 GiB |
+| Peak host RSS recorded in Mem.txt | 4.38 GiB | 4.24 GiB |
+
 **Carbon Counting**
 
 ![](./evaluation_results/figures/component_carbon_pie_bf16.png)

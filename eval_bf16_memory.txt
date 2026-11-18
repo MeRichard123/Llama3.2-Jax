@@ -1,0 +1,2 @@
+Command terminated by signal 2
+peak_rss_kib=11269304

@@ -141,7 +141,7 @@ class GroupedQueryAttention(nnx.Module):
 
     def _attend(self, q, k, v, mask, *, key_length=None):
         batch, _, length, _ = q.shape
-        if True:
+        if False:
             attended = flash_attention(
                     q, k, v, mask=mask, causal=False, key_length=key_length
             )

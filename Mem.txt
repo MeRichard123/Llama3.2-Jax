@@ -1,0 +1,19 @@
+INT4
+------------
+/usr/bin/time -f 'peak_rss_kib=%M' \
+  -o eval-int4-memory.txt \
+  python3 evaluate.py --quantisation 4 --suffix int4
+
+
+peak_rss_kib= 4,596,548 KiB = 4.3836 GiB
+= Peak Resident RAM for CPU for a GPU run
+
+VRAM = 8862 MiB
+
+BF16
+-------------
+
+peak_rss_kib= 4,446,348 = 4.2404 GiB 
+= CPU for a GPU run
+
+VRAM = 8864 MiB 
