@@ -152,7 +152,11 @@ class GroupedQueryAttention(nnx.Module):
         q = q.reshape(batch, self.num_kv_groups, self.group_size, length, self.head_dim)
         scores = jnp.einsum("bgrtd,bgsd->bgrts", q.astype(jnp.float32), k.astype(jnp.float32))
         scores = scores / self.head_dim**0.5
-        scores = jnp.where(mask, -jnp.inf, scores)
+        if mask is not None:
+            scores = jnp.where(mask, -jnp.inf, scores)
+        if key_length is not None:
+            unused_keys = jnp.arange(k.shape[2]) >= key_length
+            scores = jnp.where(unused_keys, -jnp.inf, scores)
         weights = jax.nn.softmax(scores, axis=-1).astype(v.dtype)
         attended = jnp.einsum("bgrts,bgsd->bgrtd", weights, v)
         attended = attended.reshape(batch, self.num_heads, length, self.head_dim)
